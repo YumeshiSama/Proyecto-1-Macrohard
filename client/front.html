@@ -7,11 +7,11 @@
     <title>Document</title>
     <script>
       function retrieveData () {
-          fetch("../server/routes/productos.php")
-          .then((res) => res.json())
+          fetch("http:/localhost/github/ Proyecto-1-Macrohard/server/productos")
+          .then((res) => res.text())  //json text
           .then((data) => {
-              // console.log(data);
-              // data = data[0];
+               //console.log(data);
+                //data = data[0];
               // console.log(data.nombre);
               for (let i=0; i < data.length; i++) {
                 const datos = document.createElement("div");
