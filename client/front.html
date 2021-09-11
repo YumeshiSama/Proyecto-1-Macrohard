@@ -16,8 +16,6 @@
               // console.log(data.nombre);
             data.productos.forEach(element => {
               console.log(element.nombre)
-              let i=0
-              i++
               const datos = document.createElement("div");
                 datos.innerText = "Producto: " + element.nombre + "\nCantidad: " + element.cantidad + "\nPrecio:" + element.precio;
                 const div = document.getElementById("datos");
@@ -32,7 +30,6 @@
                 div.appendChild(datos);
               }*/
             })
-            .catch(error => console.log(error))
         }
       document.addEventListener("DOMContentLoaded", function (event) {
         retrieveData(); 
