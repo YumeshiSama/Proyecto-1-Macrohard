@@ -25,9 +25,9 @@ function router($method, $url, $closure) {
 }
 
 
-router("GET", "/models/productos", function(){
+router("GET", "/models/productos", function()){  // ) agregado
     include_once("../models/productos.php");
     echo mostrar_productos();
 
-});
+}; // )eliminado
 

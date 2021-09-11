@@ -7,29 +7,42 @@
     <title>Document</title>
     <script>
       function retrieveData () {
-          fetch("http:/localhost/github/ Proyecto-1-Macrohard/server/productos")
-          .then((res) => res.text())  //json text
-          .then((data) => {
+          fetch('../server/models/productos.php')
+          .then( res => res.json())  //json text
+          .then( data => {
+            console.log(data.productos)
                //console.log(data);
                 //data = data[0];
               // console.log(data.nombre);
-              for (let i=0; i < data.length; i++) {
+            data.productos.forEach(element => {
+              console.log(element.nombre)
+              let i=0
+              i++
+              const datos = document.createElement("div");
+                datos.innerText = "Producto: " + element.nombre + "\nCantidad: " + element.cantidad + "\nPrecio:" + element.precio;
+                const div = document.getElementById("datos");
+                div.appendChild(datos);
+            });
+
+
+              /*for (let i=0; i < data.length; i++) {
                 const datos = document.createElement("div");
                 datos.innerText = "Producto: " + data[i].nombre + "\nCantidad: " + data[i].cantidad + "\nPrecio:" + data[i].precio;
                 const div = document.getElementById("datos");
                 div.appendChild(datos);
-              }
-            });
-        };
+              }*/
+            })
+            .catch(error => console.log(error))
+        }
       document.addEventListener("DOMContentLoaded", function (event) {
         retrieveData(); 
         const button = document.querySelector(".button");
         button.addEventListener("click", () => {
           retrieveData();
-        });
+        })
         //Las peticiones se hacen a la uri del server segun las rutas definidas
         
-      });
+      })
     </script>
   </head>
   <body>
