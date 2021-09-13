@@ -15,4 +15,4 @@ function mostrar_productos() {
     );
 
 }
-mostrar_productos();
+
