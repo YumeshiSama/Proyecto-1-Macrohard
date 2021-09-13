@@ -16,3 +16,10 @@ router("POST","/producto", function(){
     $datos->cantidad = $_POST['cantidad'];
     echo modificar_producto($datos);
 });
+
+router('PUT', '/producto/add', function(){
+    if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+        parse_str(file_get_contents("php://input"),$put_vars);
+        echo $put_vars['nombre'];
+    }   
+});
