@@ -5,31 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>     
     <script>
-      function retrieveData () {
-          fetch("http://localhost/github/proyecto-1-macrohard/server/routes/productos.php")
-          .then((res) => res.json())
-          .then((data) => {
-              console.log(data);
-              // data = data[0];
-              // console.log(data.nombre);
-              for (let i=0; i < data.length; i++) {
-                const datos = document.createElement("div");
-                datos.innerText = "Producto: " + data[i].nombre + "\nCantidad: " + data[i].cantidad + "\nPrecio:" + data[i].precio;
-                const div = document.getElementById("datos");
-                div.appendChild(datos);
-              }
-            });
-        };
-      document.addEventListener("DOMContentLoaded", function (event) {
-        retrieveData(); 
-        const button = document.querySelector(".button");
-        button.addEventListener("click", () => {
-          retrieveData();
-        });
+
+      const retrieveDataAsync = async () => {
+
+        try {
+          const resData = await fetch("http://localhost/github/proyecto-1-macrohard/server/models/productos.php")
+          const Data = await resData.json()
+          console.log(resData)
+        } catch (error) {
+          console.log(error);
+        }
+
+      }
+
+      // function retrieveData () {
+      //     fetch("http://localhost/github/proyecto-1-macrohard/server/index.php")
+      //     .then((res) => res.json())
+      //     .then((data) => {
+      //         console.log(data);
+      //         // data = data[0];
+      //         // console.log(data.nombre);
+      //         for (let i=0; i < data.length; i++) {
+      //           const datos = document.createElement("div");
+      //           datos.innerText = "Producto: " + data[i].nombre + "\nCantidad: " + data[i].cantidad + "\nPrecio:" + data[i].precio;
+      //           const div = document.getElementById("datos");
+      //           div.appendChild(datos);
+      //         }
+      //       });
+      //   };
+      // document.addEventListener("DOMContentLoaded", function (event) {
+      //   retrieveData(); 
+      //   const button = document.querySelector(".button");
+      //   button.addEventListener("click", () => {
+      //     retrieveData();
+      //   });
         //Las peticiones se hacen a la uri del server segun las rutas definidas
         
-      });
+      //});
     </script>
   </head>
   <body>

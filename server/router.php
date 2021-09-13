@@ -1,9 +1,10 @@
 <?php
+
 function router($method, $url, $closure) {
     //Request uri trae la uri actual
 	$route = $_SERVER['REQUEST_URI'];
     //Se elimina todo lo que no es la uri base para usar url's relativas
-    $route = str_replace("proyectos/7mo/boilerplate_front_back/server/", "", $route);
+    $route = str_replace("github/proyecto-1-macrohard/server/", "", $route);
 	if (strpos($route, '?')) {
 		$route = strstr($route, '?', true);
 	}
