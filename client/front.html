@@ -7,39 +7,29 @@
     <title>Document</title>
     <script>
       function retrieveData () {
-          fetch('../server/models/productos.php')
-          .then( res => res.json())  //json text
-          .then( data => {
-            console.log(data.productos)
-               //console.log(data);
-                //data = data[0];
+          fetch("http://localhost/proyectos/7mo/boilerplate_front_back/server/productos")
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data);
+              // data = data[0];
               // console.log(data.nombre);
-            data.productos.forEach(element => {
-              console.log(element.nombre)
-              const datos = document.createElement("div");
-                datos.innerText = "Producto: " + element.nombre + "\nCantidad: " + element.cantidad + "\nPrecio:" + element.precio;
-                const div = document.getElementById("datos");
-                div.appendChild(datos);
-            });
-
-
-              /*for (let i=0; i < data.length; i++) {
+              for (let i=0; i < data.length; i++) {
                 const datos = document.createElement("div");
                 datos.innerText = "Producto: " + data[i].nombre + "\nCantidad: " + data[i].cantidad + "\nPrecio:" + data[i].precio;
                 const div = document.getElementById("datos");
                 div.appendChild(datos);
-              }*/
-            })
-        }
+              }
+            });
+        };
       document.addEventListener("DOMContentLoaded", function (event) {
         retrieveData(); 
         const button = document.querySelector(".button");
         button.addEventListener("click", () => {
           retrieveData();
-        })
+        });
         //Las peticiones se hacen a la uri del server segun las rutas definidas
         
-      })
+      });
     </script>
   </head>
   <body>
