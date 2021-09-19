@@ -15,7 +15,6 @@ function router($method, $url, $closure) {
 
     if($method === $_SERVER['REQUEST_METHOD']) {
         if (preg_match('/^' . $urlRule . '\/*$/s', $route, $matches)) {
-    
             $parameters = array_intersect_key($matches, array_flip($parameterNames[1]));
             call_user_func_array($closure, $parameters);
         }
