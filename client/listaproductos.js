@@ -38,10 +38,9 @@ const printCards = data => {
     templateCard.querySelector('h5').textContent = producto.nombre
     templateCard.querySelector('p').textContent = producto.precio
     templateCard.querySelector('img').setAttribute('src', producto.img)
-    templateCard.querySelector('img').setAttribute('width', '230px')
+    templateCard.querySelector('img').setAttribute('width', '100px')
     templateCard.querySelector('.btn-dark').dataset.id = producto.id
-
-
+    
     const clone = templateCard.cloneNode(true)
     fragmento.appendChild(clone)
   })
