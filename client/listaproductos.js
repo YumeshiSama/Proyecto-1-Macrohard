@@ -34,18 +34,20 @@ const retrieveDataAsync = async () => {
   }
 
 const printCards = data => {
-  data.forEach(producto => {
+  data.forEach(producto => { 
+    if (producto.tipo === document.querySelector("body").id) {
     templateCard.querySelector('h5').textContent = producto.nombre
     templateCard.querySelector('p').textContent = producto.precio
     templateCard.querySelector('img').setAttribute('src', producto.img)
     templateCard.querySelector('img').setAttribute('width', '100px')
     templateCard.querySelector('.btn-dark').dataset.id = producto.id
-    
     const clone = templateCard.cloneNode(true)
     fragmento.appendChild(clone)
+    }
   })
   cartas.appendChild(fragmento)
 }
+
 
 const agregarCarrito = e => {
   if (e.target.classList.contains("btn-dark")) {
