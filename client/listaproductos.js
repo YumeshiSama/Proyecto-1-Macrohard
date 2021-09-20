@@ -36,7 +36,8 @@ const retrieveDataAsync = async () => {
 
 const printCards = data => {
   data.forEach(producto => {
-    if (producto.nombre.toLowerCase().includes(busqueda.toLowerCase())){
+    let prodname = producto.nombre.toLowerCase()
+    if (prodname.includes(busqueda)){
       bandera=true
     }
   })
@@ -50,7 +51,8 @@ const printCards = data => {
     const clone = templateCard.cloneNode(true)
     fragmento.appendChild(clone)
     }else if (document.querySelector("body").id === "busqueda"){
-      if (producto.nombre.toLowerCase().includes(busqueda.toLowerCase())){
+      let prodname = producto.nombre.toLowerCase()
+      if (prodname.includes(busqueda)){
         templateCard.querySelector('h5').textContent = producto.nombre
         templateCard.querySelector('p').textContent = producto.precio
         templateCard.querySelector('img').setAttribute('src', producto.img)
@@ -60,6 +62,8 @@ const printCards = data => {
         fragmento.appendChild(clone)
       }
       if (bandera === false){
+        console.log(prodname)
+        console.log(busqueda)
         cartas.innerHTML='<H1>Lo lamento, pero no encontramos nada relacionado con tu busqueda</h1>'
       }
     } 

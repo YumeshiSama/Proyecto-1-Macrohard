@@ -79,7 +79,9 @@ $busqueda = $_GET['busqueda'];
       </div>
     </template>
     <script type="text/javascript">
-        var busqueda = "<?php echo $busqueda; ?>";
+        var busque = "<?php echo $busqueda; ?>";
+        var busqueda=busque.toLowerCase();
+        console.log(busqueda)
     </script>
     <script src="listaproductos.js"></script>
     <script src="navbar.js"></script>
