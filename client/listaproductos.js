@@ -36,7 +36,7 @@ const retrieveDataAsync = async () => {
 
 const printCards = data => {
   data.forEach(producto => {
-    if (producto.nombre.includes(busqueda)){
+    if (producto.nombre.toLowerCase().includes(busqueda.toLowerCase())){
       bandera=true
     }
   })
@@ -50,7 +50,7 @@ const printCards = data => {
     const clone = templateCard.cloneNode(true)
     fragmento.appendChild(clone)
     }else if (document.querySelector("body").id === "busqueda"){
-      if (producto.nombre.includes(busqueda)){
+      if (producto.nombre.toLowerCase().includes(busqueda.toLowerCase())){
         templateCard.querySelector('h5').textContent = producto.nombre
         templateCard.querySelector('p').textContent = producto.precio
         templateCard.querySelector('img').setAttribute('src', producto.img)
