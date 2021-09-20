@@ -5,6 +5,7 @@ const templateCard = document.getElementById('template-card').content
 const templateFooter = document.getElementById("template-footer").content
 const templateCarrito = document.getElementById("template-carrito").content
 const fragmento = document.createDocumentFragment()
+var bandera = false
 let carrito = {}
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +35,11 @@ const retrieveDataAsync = async () => {
   }
 
 const printCards = data => {
+  data.forEach(producto => {
+    if (producto.nombre.includes(busqueda)){
+      bandera=true
+    }
+  })
   data.forEach(producto => { 
     if (producto.tipo === document.querySelector("body").id) {
     templateCard.querySelector('h5').textContent = producto.nombre
@@ -43,7 +49,20 @@ const printCards = data => {
     templateCard.querySelector('.btn-dark').dataset.id = producto.id
     const clone = templateCard.cloneNode(true)
     fragmento.appendChild(clone)
-    }
+    }else if (document.querySelector("body").id === "busqueda"){
+      if (producto.nombre.includes(busqueda)){
+        templateCard.querySelector('h5').textContent = producto.nombre
+        templateCard.querySelector('p').textContent = producto.precio
+        templateCard.querySelector('img').setAttribute('src', producto.img)
+        templateCard.querySelector('img').setAttribute('width', '100px')
+        templateCard.querySelector('.btn-dark').dataset.id = producto.id
+        const clone = templateCard.cloneNode(true)
+        fragmento.appendChild(clone)
+      }
+      if (bandera === false){
+        cartas.innerHTML='<H1>Lo lamento, pero no encontramos nada relacionado con tu busqueda</h1>'
+      }
+    } 
   })
   cartas.appendChild(fragmento)
 }

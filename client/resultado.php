@@ -1,3 +1,6 @@
+<?php 
+$busqueda = $_GET['busqueda'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,10 +10,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nuestros Mangas - El Enchiridion</title>
+    <title>Nuestros Comics - El Enchiridion</title>
     
   </head>
-  <body id="mangas">
+  <body id="busqueda">
     <div class="container">	
       <div id="navbar"></div>
       
@@ -32,7 +35,7 @@
           </tr>
         </tfoot>
       </table>
-      <div id="pie"></div>
+      <div class="" id="pie"></div>
     </div>
 
     <template id="template-footer">
@@ -75,8 +78,10 @@
         </div>
       </div>
     </template>
-
-  <script src="listaproductos.js"></script>
-  <script src="navbar.js"></script>
+    <script type="text/javascript">
+        var busqueda = "<?php echo $busqueda; ?>";
+    </script>
+    <script src="listaproductos.js"></script>
+    <script src="navbar.js"></script>
   </body>
 </html>
