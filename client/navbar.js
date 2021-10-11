@@ -20,23 +20,14 @@ pintarNavbar = () => {
         <li class="nav-item">
           <a class="nav-link" href="ropa.html">Ropa</a>
         </li>
-      </ul>
-      <li class="form-inline my-2 my-lg-0">
-          <a class="nav-link" href="#">Login</a>
-          <div class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cargar producto</button>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <a class="nav-link" href="#">Login</a>
-        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="cargar_producto.html">Cargar Producto</a>
         </li>
+      </ul>
       <form action="resultado.php" method="GET" class="form-inline my-2 my-lg-0">
         <input id="busqueda" name="busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button></form>
         <div class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cargar producto</button>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
         </div>
     </div>
     </nav>`
