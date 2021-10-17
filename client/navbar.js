@@ -21,7 +21,7 @@ pintarNavbar = () => {
           <a class="nav-link" href="ropa.html">Ropa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cargar_producto.html">Cargar Producto</a>
+          <a class="nav-link" href="cargar_producto.php">Cargar Producto</a>
         </li>
       </ul>
       <form action="resultado.php" method="GET" class="form-inline my-2 my-lg-0">
