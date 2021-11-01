@@ -10,8 +10,8 @@
         <title>Cargar Producto - El Enchiridion</title>
       </head>
     <body>
+    <div id="navbar" class="container-fluid"></div>
       <div class="container">
-      <div id="navbar"></div>
         <form action="cargar_producto_accion.php" method="post" enctype="multipart/form-data">
             <div class="form-group row">
               <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
